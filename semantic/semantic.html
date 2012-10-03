@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html><head>
+<meta name="GENERATOR" content="PageBreeze Free HTML Editor (http://www.pagebreeze.com)">
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+<title>Semantic and Intermediate Code Generation</title></head>
+
+<body bgcolor="#ffffff">
+<h1 align="center">Semantic Analysis and AST</h1>
+<p align="left">From the previous part of the project you learned:&nbsp;<br>* How to include semantic actions into production rules<br>* What is the order by which production rules are accessed (You even saved them in a file!)<br>* How to build a very simple &nbsp;symbol table</p><p align="left">In
+this part of the project we will build on the previous part to have an
+abstract syntax tree (to be used to generate intermediate code later)
+and more sophisticated symbol table.</p><p align="left">This part of the project consists of two 
+tasks. The first is building an abstract syntax tree (AST). The second is a <em>simplified</em>&nbsp; semantic analysis phase.&nbsp;<br>For both, you will just need to 
+continue on the parser file you have built in the previous part of this project.</p>
+<h2 align="left">AST</h2><p><font size="4">Abstract Syntax Tree (AST), see Figure
+2.4a and Section 2.5.1, to get an idea about the difference between AST
+and parse tree.</font><font size="4"><font face="Helvetica"><font face="Helvetica">&nbsp;</font></font></font></p><p><font size="4"><font face="Helvetica"><font face="Helvetica">After you 
+build the tree, you need to write a function to print it in a text file (ast.out). The 
+best way to put a tree in a text file is to have a format similar to the 
+<em><font size="4"><strong>tree</strong></font> </em>command in Unix or Linux. You do 
+not need to draw the branches, you can use spaces and tabs to include 
+children.&nbsp; The following example shows a tree with three 
+levels: root, intermediate, and leaves.</font></font></font></p>
+<p>         
+        
+<br><font size="4"><font face="Helvetica"><font face="Helvetica">Example: Root has 
+two children: intermediate 1 and intermediate 2. Intermediate 1 has two children 
+A and B,&nbsp; while intermediate 2 has one children C. Then your file will be like this:</font></font></font>         
+        
+</p>
+<p><font size="4"><font face="Helvetica"><font face="Helvetica"><br></font></font></font></p><font size="4"><font face="Helvetica"><font face="Helvetica">ROOT</font></font></font>
+<font size="4"><font face="Helvetica"><font face="Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+INTERMEDIATE 1</font></font></font>         
+        
+
+<br><font size="4"><font face="Helvetica"><font face="Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+A</font></font></font>         
+        
+
+<br><font size="4"><font face="Helvetica"><font face="Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;B</font></font></font>         
+        
+
+<br><font size="4"><font face="Helvetica"><font face="Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;INTERMEDIATE 
+2</font></font></font>         
+        
+
+<br><font size="4"><font face="Helvetica"><font face="Helvetica">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+C&nbsp;</font></font></font><br><h2 align="left">Semantic Analysis</h2>
+<p>In that part we need to check for two type of errors.</p>
+<ul>
+  <li>Any used variable must have been declared first.</li>
+  <li>Catch multiple declarations of the same variable within the same 
+  scope.</li></ul>
+<p>Your compiler must output error messages for each error encountered 
+specifying the type of error (no need to mention location information such as 
+line number).</p>
+<p>You can&nbsp;implement that&nbsp;part of the semantic analysis in one of two 
+ways.</p>
+<ul>
+  <li>Write a spearate phase (function/procedure) that parses the 
+  previously generated AST and add extra information to its nodes (such as type, 
+  scope [global and local], etc).</li>
+  <li>Using sematic actions in your current yacc/bison file.</li></ul>
+<p>Here is a suggestion on how to do it. However, feel free 
+to implement it in any other way you like.</p>
+<p>Let each entry of the symbol table consist of 
+two pieces of information: the lexeme and the scope. The scope indicates either 
+global, or the procedure&nbsp;in which the variable was declared. Whenever you 
+encounter a variable declaration, add an entry to a table. If the table has 
+already an entry within the same scope, then&nbsp;generate a multiple declaration error.&nbsp;If you 
+are using syntax tree&nbsp; then 
+add to the node representing the variable a link to the table entry. This link 
+can be a pointer to the entry in the table, or simply an index to the table 
+entry. Whenever a variable is used, check the symbol table for that variable. If 
+there is no entry, then you must generate an error for undeclared variable.</p>
+<p>We will test this part of your project with a program 
+that contains only semantic errors indicated above (i.e. no syntactic or lexical 
+errors).</p><hr>
+
+<h2>What you have to submit</h2>
+<ul>
+  <li>
+<div>All source files for&nbsp;flex, bison, and any 
+  external source code you have.</div></li>
+  
+  <li>
+<div>Readme indicating how to run your program&nbsp;</div></li></ul>
+<p align="center"><font size="1">This Web Page Created with PageBreeze </font><a href="http://www.pagebreeze.com" target="_blank"><font size="1">Free HTML 
+Editor</font></a></p>
+</body></html>

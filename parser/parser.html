@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<html><head>
+<meta name="GENERATOR" content="PageBreeze Free HTML Editor (http://www.pagebreeze.com)">
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
+
+
+<title>parser</title><style>
+<!--
+h1 { font-family: Arial, sans-serif; font-size: 30px; }
+h2 { font-family: Arial, sans-serif; font-size: 18px; }
+
+body,p,b,i,em,dt,dd,dl,sl,caption,th,td,tr,u,blink,select,option,form,div,li { font-family: Arial, sans-serif; font-size: 12px; }
+-->
+</style></head>
+<body bgcolor="#ffffff">
+<h1 align="center"> Project Phase 2:</h1>
+<h1 align="center"> Syntax Analysis: Parser</h1>
+<h2>Your tasks:</h2>
+<p><font size="4">1. You will be using <a href="http://www.gnu.org/software/bison/">Bison</a> parser generator.</font></p>
+<p><font size="4">2. Use <a href="grammar.html">this grammar</a>&nbsp; with bison, 
+together with your previous lexer. </font></p>
+<p><font size="4">3.&nbsp;</font><font size="4">At that point of the project, you need to generate the following:</font></p><ul><li><font size="4">A file called rules.out that contains the head of each production rule recognized, one per line.</font></li></ul><big>Example: The first few lines of rules.out may look like:<br>TypeDefinitions<br>Program</big><br><ul><li><font size="4">Build
+a symbol table for each identifier in the program. There is one entry
+per identifier. For now each entry contains the identifier name. In
+subsequent parts of the project, we will add more information. Then you
+print the whole table to a file (symtable.out), one entry per table.<br></font></li></ul><br><h2>What you need to Submit:</h2>
+<ol>
+  <li>
+<div><font size="4">Your input file to bison</font></div></li>
+  <li>
+<div><font size="4">Your input file to flex</font></div></li>
+  
+  <li>
+<div><font size="4">Any extra code you have written 
+  external to the above files</font></div></li>
+  <li>
+<div><font size="4">A small README file to tell us how to run your project.</font></div></li></ol>
+<p><font size="4"></font>&nbsp;</p>
+<p>&nbsp;</p>
+<p style="font-weight: bold;"><big><big>A&nbsp;useful comment about Bison:</big></big></p><p><big>There is an array called yytoknum, and 
+you need to pass the index from yytname to yytoknum to get the actual value of 
+the token. &nbsp;This is not documented in the Bison 1.875 manual. 
+&nbsp;You have to specify&nbsp;<br>"#define YYPRINT" in order 
+for the yytoknum array to be created. Here is the link to the bug report I 
+found:<br><a href="http://osdir.com/ml/parsers.bison.bugs/2003-09/msg00009.html" target="_blank" ibd48ee1200749c4="true">http://osdir.com/ml/parsers.<wbr>bison.bugs/2003-09/msg00009.<wbr>html</a></big></p>
+<p>&nbsp;</p>
+<p><big>You can call bison with flag &#8211;d to create header file
+containing token numbers (used in flex).&nbsp;Since bison creates token
+numbers, bisonshould be called before flex </big></p><p></p><p><big>You
+can also c all bison with &#8211;v flag to dump output file showing resulting
+LR state machine and any shift-reduce, reduce-reduceerrors. </big></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p><font size="1"><font size="1">
+<p align="center"> </p>  
+    </font>      </font>
+</body></html>

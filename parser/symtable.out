@@ -1,0 +1,11 @@
+entry:   0, symbol:   lexer_test, property:  ID, type: (null) 
+entry:   1, symbol:          int, property:  ID, type: integer 
+entry:   2, symbol:      integer, property:  ID, type: (null) 
+entry:   3, symbol:            i, property:  ID, type: integer 
+entry:   4, symbol:            b, property:  ID, type: boolean 
+entry:   5, symbol:      boolean, property:  ID, type: (null) 
+entry:   6, symbol:          foo, property:  ID, type:    1 
+entry:   7, symbol:            x, property:  ID, type: (null) 
+entry:   8, symbol:          bar, property:  ID, type:    1 
+entry:   9, symbol:        false, property:  ID, type: (null) 
+entry:  10, symbol:         true, property:  ID, type: (null) 

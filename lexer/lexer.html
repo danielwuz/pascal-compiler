@@ -1,0 +1,509 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/2004/12/omml" xmlns="http://www.w3.org/TR/REC-html40"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+<meta name="ProgId" content="Word.Document">
+<meta name="Generator" content="Microsoft Word 12">
+<meta name="Originator" content="Microsoft Word 12">
+<link rel="File-List" href="lexer_files/filelist.xml">
+
+
+<title>lexer</title><!--[if gte mso 9]><xml>
+ <o:documentproperties>
+  <o:author>mzahran</o:author>
+  <o:lastauthor>mzahran</o:lastauthor>
+  <o:revision>2</o:revision>
+  <o:totaltime>1</o:totaltime>
+  <o:created>2010-02-11T06:38:00Z</o:created>
+  <o:lastsaved>2010-02-11T06:39:00Z</o:lastsaved>
+  <o:pages>2</o:pages>
+  <o:words>439</o:words>
+  <o:characters>2508</o:characters>
+  <o:lines>20</o:lines>
+  <o:paragraphs>5</o:paragraphs>
+  <o:characterswithspaces>2942</o:characterswithspaces>
+  <o:version>12.00</o:version>
+ </o:documentproperties>
+</xml><![endif]--><link rel="themeData" href="lexer_files/themedata.thmx">
+<link rel="colorSchemeMapping" href="lexer_files/colorschememapping.xml"><!--[if gte mso 9]><xml>
+ <w:worddocument>
+  <w:spellingstate>Clean</w:spellingstate>
+  <w:grammarstate>Clean</w:grammarstate>
+  <w:trackmoves>false</w:trackmoves>
+  <w:trackformatting/>
+  <w:validateagainstschemas/>
+  <w:saveifxmlinvalid>false</w:saveifxmlinvalid>
+  <w:ignoremixedcontent>false</w:ignoremixedcontent>
+  <w:alwaysshowplaceholdertext>false</w:alwaysshowplaceholdertext>
+  <w:donotpromoteqf/>
+  <w:lidthemeother>EN-US</w:lidthemeother>
+  <w:lidthemeasian>X-NONE</w:lidthemeasian>
+  <w:lidthemecomplexscript>AR-SA</w:lidthemecomplexscript>
+  <w:compatibility>
+   <w:breakwrappedtables/>
+   <w:snaptogridincell/>
+   <w:wraptextwithpunct/>
+   <w:useasianbreakrules/>
+   <w:dontgrowautofit/>
+   <w:splitpgbreakandparamark/>
+   <w:dontvertaligncellwithsp/>
+   <w:dontbreakconstrainedforcedtables/>
+   <w:dontvertalignintxbx/>
+   <w:word11kerningpairs/>
+   <w:cachedcolbalance/>
+  </w:compatibility>
+  <w:browserlevel>MicrosoftInternetExplorer4</w:browserlevel>
+  <m:mathpr>
+   <m:mathfont m:val="Cambria Math"/>
+   <m:brkbin m:val="before"/>
+   <m:brkbinsub m:val="&#45;-"/>
+   <m:smallfrac m:val="off"/>
+   <m:dispdef/>
+   <m:lmargin m:val="0"/>
+   <m:rmargin m:val="0"/>
+   <m:defjc m:val="centerGroup"/>
+   <m:wrapindent m:val="1440"/>
+   <m:intlim m:val="subSup"/>
+   <m:narylim m:val="undOvr"/>
+  </m:mathpr></w:worddocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:latentstyles deflockedstate="false" defunhidewhenused="true"
+  DefSemiHidden="true" DefQFormat="false" DefPriority="99"
+  LatentStyleCount="267">
+  <w:lsdexception locked="false" priority="0" semihidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Normal"/>
+  <w:lsdexception locked="false" priority="9" semihidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 1"/>
+  <w:lsdexception locked="false" priority="9" semihidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="heading 2"/>
+  <w:lsdexception locked="false" priority="9" qformat="true" name="heading 3"/>
+  <w:lsdexception locked="false" priority="9" qformat="true" name="heading 4"/>
+  <w:lsdexception locked="false" priority="9" qformat="true" name="heading 5"/>
+  <w:lsdexception locked="false" priority="9" qformat="true" name="heading 6"/>
+  <w:lsdexception locked="false" priority="9" qformat="true" name="heading 7"/>
+  <w:lsdexception locked="false" priority="9" qformat="true" name="heading 8"/>
+  <w:lsdexception locked="false" priority="9" qformat="true" name="heading 9"/>
+  <w:lsdexception locked="false" priority="39" name="toc 1"/>
+  <w:lsdexception locked="false" priority="39" name="toc 2"/>
+  <w:lsdexception locked="false" priority="39" name="toc 3"/>
+  <w:lsdexception locked="false" priority="39" name="toc 4"/>
+  <w:lsdexception locked="false" priority="39" name="toc 5"/>
+  <w:lsdexception locked="false" priority="39" name="toc 6"/>
+  <w:lsdexception locked="false" priority="39" name="toc 7"/>
+  <w:lsdexception locked="false" priority="39" name="toc 8"/>
+  <w:lsdexception locked="false" priority="39" name="toc 9"/>
+  <w:lsdexception locked="false" priority="35" qformat="true" name="caption"/>
+  <w:lsdexception locked="false" priority="10" semihidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Title"/>
+  <w:lsdexception locked="false" priority="1" name="Default Paragraph Font"/>
+  <w:lsdexception locked="false" priority="11" semihidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtitle"/>
+  <w:lsdexception locked="false" priority="22" semihidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Strong"/>
+  <w:lsdexception locked="false" priority="20" semihidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Emphasis"/>
+  <w:lsdexception locked="false" priority="59" semihidden="false"
+   UnhideWhenUsed="false" Name="Table Grid"/>
+  <w:lsdexception locked="false" unhidewhenused="false" name="Placeholder Text"/>
+  <w:lsdexception locked="false" priority="1" semihidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="No Spacing"/>
+  <w:lsdexception locked="false" priority="60" semihidden="false"
+   UnhideWhenUsed="false" Name="Light Shading"/>
+  <w:lsdexception locked="false" priority="61" semihidden="false"
+   UnhideWhenUsed="false" Name="Light List"/>
+  <w:lsdexception locked="false" priority="62" semihidden="false"
+   UnhideWhenUsed="false" Name="Light Grid"/>
+  <w:lsdexception locked="false" priority="63" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1"/>
+  <w:lsdexception locked="false" priority="64" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2"/>
+  <w:lsdexception locked="false" priority="65" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1"/>
+  <w:lsdexception locked="false" priority="66" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2"/>
+  <w:lsdexception locked="false" priority="67" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1"/>
+  <w:lsdexception locked="false" priority="68" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2"/>
+  <w:lsdexception locked="false" priority="69" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3"/>
+  <w:lsdexception locked="false" priority="70" semihidden="false"
+   UnhideWhenUsed="false" Name="Dark List"/>
+  <w:lsdexception locked="false" priority="71" semihidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading"/>
+  <w:lsdexception locked="false" priority="72" semihidden="false"
+   UnhideWhenUsed="false" Name="Colorful List"/>
+  <w:lsdexception locked="false" priority="73" semihidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid"/>
+  <w:lsdexception locked="false" priority="60" semihidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 1"/>
+  <w:lsdexception locked="false" priority="61" semihidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 1"/>
+  <w:lsdexception locked="false" priority="62" semihidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 1"/>
+  <w:lsdexception locked="false" priority="63" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 1"/>
+  <w:lsdexception locked="false" priority="64" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 1"/>
+  <w:lsdexception locked="false" priority="65" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 1"/>
+  <w:lsdexception locked="false" unhidewhenused="false" name="Revision"/>
+  <w:lsdexception locked="false" priority="34" semihidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="List Paragraph"/>
+  <w:lsdexception locked="false" priority="29" semihidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Quote"/>
+  <w:lsdexception locked="false" priority="30" semihidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Quote"/>
+  <w:lsdexception locked="false" priority="66" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 1"/>
+  <w:lsdexception locked="false" priority="67" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 1"/>
+  <w:lsdexception locked="false" priority="68" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 1"/>
+  <w:lsdexception locked="false" priority="69" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 1"/>
+  <w:lsdexception locked="false" priority="70" semihidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 1"/>
+  <w:lsdexception locked="false" priority="71" semihidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 1"/>
+  <w:lsdexception locked="false" priority="72" semihidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 1"/>
+  <w:lsdexception locked="false" priority="73" semihidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 1"/>
+  <w:lsdexception locked="false" priority="60" semihidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 2"/>
+  <w:lsdexception locked="false" priority="61" semihidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 2"/>
+  <w:lsdexception locked="false" priority="62" semihidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 2"/>
+  <w:lsdexception locked="false" priority="63" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 2"/>
+  <w:lsdexception locked="false" priority="64" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 2"/>
+  <w:lsdexception locked="false" priority="65" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 2"/>
+  <w:lsdexception locked="false" priority="66" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 2"/>
+  <w:lsdexception locked="false" priority="67" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 2"/>
+  <w:lsdexception locked="false" priority="68" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 2"/>
+  <w:lsdexception locked="false" priority="69" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 2"/>
+  <w:lsdexception locked="false" priority="70" semihidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 2"/>
+  <w:lsdexception locked="false" priority="71" semihidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 2"/>
+  <w:lsdexception locked="false" priority="72" semihidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 2"/>
+  <w:lsdexception locked="false" priority="73" semihidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 2"/>
+  <w:lsdexception locked="false" priority="60" semihidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 3"/>
+  <w:lsdexception locked="false" priority="61" semihidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 3"/>
+  <w:lsdexception locked="false" priority="62" semihidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 3"/>
+  <w:lsdexception locked="false" priority="63" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 3"/>
+  <w:lsdexception locked="false" priority="64" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 3"/>
+  <w:lsdexception locked="false" priority="65" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 3"/>
+  <w:lsdexception locked="false" priority="66" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 3"/>
+  <w:lsdexception locked="false" priority="67" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 3"/>
+  <w:lsdexception locked="false" priority="68" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 3"/>
+  <w:lsdexception locked="false" priority="69" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 3"/>
+  <w:lsdexception locked="false" priority="70" semihidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 3"/>
+  <w:lsdexception locked="false" priority="71" semihidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 3"/>
+  <w:lsdexception locked="false" priority="72" semihidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 3"/>
+  <w:lsdexception locked="false" priority="73" semihidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 3"/>
+  <w:lsdexception locked="false" priority="60" semihidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 4"/>
+  <w:lsdexception locked="false" priority="61" semihidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 4"/>
+  <w:lsdexception locked="false" priority="62" semihidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 4"/>
+  <w:lsdexception locked="false" priority="63" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 4"/>
+  <w:lsdexception locked="false" priority="64" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 4"/>
+  <w:lsdexception locked="false" priority="65" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 4"/>
+  <w:lsdexception locked="false" priority="66" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 4"/>
+  <w:lsdexception locked="false" priority="67" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 4"/>
+  <w:lsdexception locked="false" priority="68" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 4"/>
+  <w:lsdexception locked="false" priority="69" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 4"/>
+  <w:lsdexception locked="false" priority="70" semihidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 4"/>
+  <w:lsdexception locked="false" priority="71" semihidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 4"/>
+  <w:lsdexception locked="false" priority="72" semihidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 4"/>
+  <w:lsdexception locked="false" priority="73" semihidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 4"/>
+  <w:lsdexception locked="false" priority="60" semihidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 5"/>
+  <w:lsdexception locked="false" priority="61" semihidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 5"/>
+  <w:lsdexception locked="false" priority="62" semihidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 5"/>
+  <w:lsdexception locked="false" priority="63" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 5"/>
+  <w:lsdexception locked="false" priority="64" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 5"/>
+  <w:lsdexception locked="false" priority="65" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 5"/>
+  <w:lsdexception locked="false" priority="66" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 5"/>
+  <w:lsdexception locked="false" priority="67" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 5"/>
+  <w:lsdexception locked="false" priority="68" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 5"/>
+  <w:lsdexception locked="false" priority="69" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 5"/>
+  <w:lsdexception locked="false" priority="70" semihidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 5"/>
+  <w:lsdexception locked="false" priority="71" semihidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 5"/>
+  <w:lsdexception locked="false" priority="72" semihidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 5"/>
+  <w:lsdexception locked="false" priority="73" semihidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 5"/>
+  <w:lsdexception locked="false" priority="60" semihidden="false"
+   UnhideWhenUsed="false" Name="Light Shading Accent 6"/>
+  <w:lsdexception locked="false" priority="61" semihidden="false"
+   UnhideWhenUsed="false" Name="Light List Accent 6"/>
+  <w:lsdexception locked="false" priority="62" semihidden="false"
+   UnhideWhenUsed="false" Name="Light Grid Accent 6"/>
+  <w:lsdexception locked="false" priority="63" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 1 Accent 6"/>
+  <w:lsdexception locked="false" priority="64" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Shading 2 Accent 6"/>
+  <w:lsdexception locked="false" priority="65" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium List 1 Accent 6"/>
+  <w:lsdexception locked="false" priority="66" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium List 2 Accent 6"/>
+  <w:lsdexception locked="false" priority="67" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 1 Accent 6"/>
+  <w:lsdexception locked="false" priority="68" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 2 Accent 6"/>
+  <w:lsdexception locked="false" priority="69" semihidden="false"
+   UnhideWhenUsed="false" Name="Medium Grid 3 Accent 6"/>
+  <w:lsdexception locked="false" priority="70" semihidden="false"
+   UnhideWhenUsed="false" Name="Dark List Accent 6"/>
+  <w:lsdexception locked="false" priority="71" semihidden="false"
+   UnhideWhenUsed="false" Name="Colorful Shading Accent 6"/>
+  <w:lsdexception locked="false" priority="72" semihidden="false"
+   UnhideWhenUsed="false" Name="Colorful List Accent 6"/>
+  <w:lsdexception locked="false" priority="73" semihidden="false"
+   UnhideWhenUsed="false" Name="Colorful Grid Accent 6"/>
+  <w:lsdexception locked="false" priority="19" semihidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Emphasis"/>
+  <w:lsdexception locked="false" priority="21" semihidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Emphasis"/>
+  <w:lsdexception locked="false" priority="31" semihidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Subtle Reference"/>
+  <w:lsdexception locked="false" priority="32" semihidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Intense Reference"/>
+  <w:lsdexception locked="false" priority="33" semihidden="false"
+   UnhideWhenUsed="false" QFormat="true" Name="Book Title"/>
+  <w:lsdexception locked="false" priority="37" name="Bibliography"/>
+  <w:lsdexception locked="false" priority="39" qformat="true" name="TOC Heading"/>
+ </w:latentstyles>
+</xml><![endif]-->
+
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:-1610611985 1107304683 0 0 159 0;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:roman;
+	mso-font-format:other;
+	mso-font-pitch:auto;
+	mso-font-signature:0 0 0 0 0 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+h1
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 1 Char";
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:1;
+	font-size:24.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+h2
+	{mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-qformat:yes;
+	mso-style-link:"Heading 2 Char";
+	mso-margin-top-alt:auto;
+	margin-right:0in;
+	mso-margin-bottom-alt:auto;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	mso-outline-level:2;
+	font-size:18.0pt;
+	font-family:"Times New Roman","serif";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+pre
+	{mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-link:"HTML Preformatted Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;}
+span.Heading1Char
+	{mso-style-name:"Heading 1 Char";
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 1";
+	mso-ansi-font-size:14.0pt;
+	mso-bidi-font-size:14.0pt;
+	font-family:"Cambria","serif";
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#365F91;
+	mso-themecolor:accent1;
+	mso-themeshade:191;
+	font-weight:bold;}
+span.Heading2Char
+	{mso-style-name:"Heading 2 Char";
+	mso-style-noshow:yes;
+	mso-style-priority:9;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"Heading 2";
+	mso-ansi-font-size:13.0pt;
+	mso-bidi-font-size:13.0pt;
+	font-family:"Cambria","serif";
+	mso-ascii-font-family:Cambria;
+	mso-ascii-theme-font:major-latin;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:major-fareast;
+	mso-hansi-font-family:Cambria;
+	mso-hansi-theme-font:major-latin;
+	mso-bidi-font-family:"Times New Roman";
+	mso-bidi-theme-font:major-bidi;
+	color:#4F81BD;
+	mso-themecolor:accent1;
+	font-weight:bold;}
+span.HTMLPreformattedChar
+	{mso-style-name:"HTML Preformatted Char";
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-unhide:no;
+	mso-style-locked:yes;
+	mso-style-link:"HTML Preformatted";
+	font-family:"Consolas","serif";
+	mso-ascii-font-family:Consolas;
+	mso-fareast-font-family:"Times New Roman";
+	mso-fareast-theme-font:minor-fareast;
+	mso-hansi-font-family:Consolas;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+.MsoChpDefault
+	{mso-style-type:export-only;
+	mso-default-props:yes;
+	font-size:10.0pt;
+	mso-ansi-font-size:10.0pt;
+	mso-bidi-font-size:10.0pt;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style><!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-priority:99;
+	mso-style-qformat:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman","serif";}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapedefaults v:ext="edit" spidmax="2050"/>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]--></head>
+<body style="" bgcolor="white" lang="EN-US">
+
+<div class="Section1">
+
+<h1 style="text-align: center;" align="center"><span style="">Lexical Analyzer<o:p></o:p></span></h1>
+
+<h2 style="text-align: center;" align="center"><span style="">Due Oct 21st<o:p></o:p></span></h2>
+
+<pre style=""><span style="color: black;"><span style="widows: 2; orphans: 2; word-spacing: 0px;">The first step in the construction of your compiler is to implement a lexical analyzer for a <u>Pascal-like language</u>. <o:p></o:p></span></span></pre><pre><span style="color: black;">You should use a lexical analyzer generator, such as flex (for C/C) or the <span class="SpellE">lexer</span> component of <span class="SpellE">JavaCC</span> (for Java). <o:p></o:p></span></pre><pre><span style="color: black;">If there is another language that you want to program in, there's a good chance that a parser generator has been implemented for that language.<o:p></o:p></span></pre><pre><span style="color: black;"><o:p>&nbsp;</o:p></span></pre><pre><span style="color: black;">The lexical analyzer generator is a function (in file <span class="SpellE">lex.yy.c</span> in case of <span class="SpellE">Lex</span> for exam) <o:p></o:p></span></pre><pre><span class="GramE"><span style="color: black;">that</span></span><span style="color: black;"> returns the token and places the lexeme in a variable visible to the outside <o:p></o:p></span></pre><pre><span style="color: black;">(as described in Section 3.5 of the Dragon book).<o:p></o:p></span></pre><pre style=""><span style="color: black;"><o:p>&nbsp;</o:p></span></pre><pre><span style="color: black;">The lexical analyzer should recognize </span><strong><span style="font-family: 'Courier New'; color: red;">identifiers</span></strong><span style="color: black;">, </span><strong><span style="font-family: 'Courier',New;">integer literals</span></strong><span style="color: black;">,<o:p></o:p></span></pre><pre><span class="GramE"><strong><span style="font-family: 'Courier New'; color: red;">string</span></strong></span><strong><span style="font-family: 'Courier New'; color: red;"> literals</span></strong><span style="color: black;">, </span><strong><span style="font-family: 'Courier',New;">keywords</span></strong><strong><span style="font-family: 'Courier',New;">,</span></strong><span style="color: black;"> and </span><strong><span style="font-family: 'Courier New'; color: red;">predefined symbols</span></strong><span style="color: black;">. Their definitions<o:p></o:p></span></pre><pre><span class="GramE"><span style="color: black;">are</span></span><span style="color: black;"> below:<o:p></o:p></span></pre><pre><span style="color: black;"><o:p>&nbsp;</o:p></span></pre><pre><span style="color: black;">Lexical Classes <o:p></o:p></span></pre><pre><span style="color: black;">---------------<o:p></o:p></span></pre><pre><span style="color: black;"><o:p>&nbsp;</o:p></span></pre><pre><span style="color: black;">(<span class="GramE">note</span> that '|' and the outermost '(' and ')' are meta-symbols and not part of the alphabet)<o:p></o:p></span></pre><pre><span style="color: black;"><o:p>&nbsp;</o:p></span></pre><pre><span style="color: black;"><o:p>&nbsp;</o:p></span></pre><pre><span style="color: black;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="GramE"><strong><span style="font-family: 'Courier New';">ID :</span></strong></span><strong><span style="font-family: 'Courier New';">:= letter (letter | digit | _)*<o:p></o:p></span></strong></span></pre><pre><strong><span style="font-family: 'Courier New'; color: black;"><o:p>&nbsp;</o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: black;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="GramE">INT :</span>:= digit+<o:p></o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: black;"><o:p>&nbsp;</o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: black;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="GramE">STR :</span>:= "&lt;char&gt;*"<o:p></o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: black;"><o:p>&nbsp;</o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: black;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="GramE">WS :</span>:= ( &lt;<span class="SpellE">eol</span>&gt; | &lt;space&gt; | &lt;tab&gt; )+<o:p></o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: black;"><o:p>&nbsp;</o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: black;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span class="GramE">SYM :</span>:= ( + |-| * | = | &lt; | &lt;= | &gt; | &gt;= | &lt;&gt; | . | , | : | ; | <o:p></o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: black;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>:= | .. | ( | ) | [ | ] )</span></strong><span style="color: black;"><o:p></o:p></span></pre><pre><span style="color: black;"><o:p>&nbsp;</o:p></span></pre><pre><span style="color: black;">In the above definitions, &lt;char&gt; can be any printing character other<o:p></o:p></span></pre><pre><span class="GramE"><span style="color: black;">than</span></span><span style="color: black;"> ". Of course, WS (white space) only serves as a delimiter and no<o:p></o:p></span></pre><pre><span class="GramE"><span style="color: black;">corresponding</span></span><span style="color: black;"> token should be returned by the lexical analyzer.<o:p></o:p></span></pre><pre><span style="color: black;"><o:p>&nbsp;</o:p></span></pre><pre><span style="color: black;">Keywords and reserved symbols<o:p></o:p></span></pre><pre><span style="color: black;">-----------------------------<o:p></o:p></span></pre><pre><span style="color: black;"><o:p>&nbsp;</o:p></span></pre><pre><span style="color: black;">The symbols and names that the <span class="SpellE">lexer</span> should recognize are:<o:p></o:p></span></pre><pre><span style="color: black;"><o:p>&nbsp;</o:p></span></pre><pre><span style="color: black;"><span style="">&nbsp;&nbsp; </span><span class="GramE"><strong><span style="font-family: 'Courier New';">and</span></strong></span><strong><span style="font-family: 'Courier New';"> begin forward div do else end for function if array mod not of <o:p></o:p></span></strong></span></pre><pre><strong><span style="font-family: 'Courier New'; color: black;"><span style="">&nbsp;&nbsp;&nbsp;</span><span class="GramE">or</span> procedure program record then to type <span class="SpellE">var</span> while + * -<span style="">&nbsp; </span>= &lt; &lt;= &gt; <o:p></o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: black;"><span style="">&nbsp;&nbsp;&nbsp;</span>&gt;= &lt;&gt; . , : ; := .. ( ) [ ]</span></strong><span style="color: black;"><o:p></o:p></span></pre><pre><span style="color: black;"><o:p>&nbsp;</o:p></span></pre><pre><span style="color: black;">The language is case sensitive. Each keyword should be uniquely<o:p></o:p></span></pre><pre><span class="GramE"><span style="color: black;">identified</span></span><span style="color: black;"> by its own token. You may choose to return the same<o:p></o:p></span></pre><pre><span class="GramE"><span style="color: black;">token</span></span><span style="color: black;"> (e.g. RELOP) for every relational operator (with different<o:p></o:p></span></pre><pre><span class="GramE"><span style="color: black;">lexemes</span></span><span style="color: black;">, of course) or a different token for each relational operator.<o:p></o:p></span></pre><pre><span style="color: black;">The same is true for arithmetic operators.<o:p></o:p></span></pre><pre><span style="color: black;"><o:p>&nbsp;</o:p></span></pre><pre><span style="color: black;"><o:p>&nbsp;</o:p></span></pre><pre><span style="color: black;">Comments<o:p></o:p></span></pre><pre><span style="color: black;">--------<o:p></o:p></span></pre><pre><span style="color: black;"><o:p>&nbsp;</o:p></span></pre><pre><span style="color: black;">In the programming language you are building a compiler for, comments<o:p></o:p></span></pre><pre><span class="GramE"><span style="color: black;">consist</span></span><span style="color: black;"> of text enclosed in matching curly braces, namely { and }.<span style="">&nbsp; </span>No<o:p></o:p></span></pre><pre><span class="GramE"><span style="color: black;">token</span></span><span style="color: black;"> should be produced for comments. The <span class="SpellE">lexer</span>, upon encountering a<o:p></o:p></span></pre><pre><span class="GramE"><span style="color: black;">comment</span></span><span style="color: black;">, should produce the first token following the end of the<o:p></o:p></span></pre><pre><span class="GramE"><span style="color: black;">comment</span></span><span style="color: black;">.<o:p></o:p></span></pre><pre><span style="color: black;"><o:p>&nbsp;</o:p></span></pre><pre><span style="color: black;"><o:p>&nbsp;</o:p></span></pre><pre><span style="color: black;">To Turn In<o:p></o:p></span></pre><pre><span style="color: black;">----------<o:p></o:p></span></pre><pre><span style="color: black;"><o:p>&nbsp;</o:p></span></pre><pre><span style="color: black;">You should turn in three things:<o:p></o:p></span></pre><pre><span style="color: black;"><o:p>&nbsp;</o:p></span></pre><pre><span style="color: black;">1. The lexical specification you gave as input to the <span class="SpellE">lexer</span> generator (something similar to Fig 3.23 in the book).<o:p></o:p></span></pre><pre><span style="color: black;"><o:p>&nbsp;</o:p></span></pre><pre><span style="color: black;">2. The output of the <span class="SpellE">lexer</span> generator, i.e. the <span class="SpellE">lexer</span> itself.<o:p></o:p></span></pre><pre><span style="color: black;"><o:p>&nbsp;</o:p></span></pre><pre><span style="color: black;">3. A simple program that repeatedly invokes the <span class="SpellE">lexer</span> and<o:p></o:p></span></pre><pre><span style="color: black;"><span style="">&nbsp;&nbsp; </span><span class="GramE">prints</span> out the token and lexeme that the <span class="SpellE">lexer</span> returns.<o:p></o:p></span></pre><pre><span style="color: black;"><o:p>&nbsp;</o:p></span></pre><pre><span style="color: black;">You should test your <span class="SpellE">lexer</span> on some of the test programs on the web<o:p></o:p></span></pre><pre><span class="GramE"><span style="color: black;">page</span></span><span style="color: black;">. When you are confident that it is working correctly, send your submission to the TA and myself.<br><br><big style="font-weight: bold;"><big><br>We will be using <a href="http://flex.sourceforge.net/">flex</a> as the lexer generator for that project. Be sure that your project work on the<br>version of the school machines (ver 2.5.4).</big></big><o:p></o:p></span></pre><pre style=""><strong><span style="font-family: 'Courier New'; color: red;"><o:p>&nbsp;</o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;">Please do NOT send your submission on the mailing list!<span style="">&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><o:p>&nbsp;</o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><o:p></o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><o:p></o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><o:p></o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><o:p></o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><o:p>&nbsp;</o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><o:p>&nbsp;</o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><o:p>&nbsp;</o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><o:p>&nbsp;</o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><o:p>&nbsp;</o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><o:p></o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><o:p></o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><o:p></o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><o:p>&nbsp;</o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><o:p>&nbsp;</o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><o:p>&nbsp;</o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><span style="">&nbsp; </span><o:p></o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><o:p>&nbsp;</o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><o:p>&nbsp;</o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><o:p>&nbsp;</o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><o:p>&nbsp;</o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><o:p>&nbsp;</o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><o:p></o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><o:p>&nbsp;</o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><o:p></o:p></span></strong></pre><pre><strong><span style="font-family: 'Courier New'; color: red;"><span style="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="">&nbsp;</span></span><o:p></o:p></strong></pre></div>
+
+
+
+</body></html>

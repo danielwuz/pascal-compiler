@@ -1,0 +1,14 @@
+Compile:
+$bison -d parser.y
+$flex lexer.l
+$gcc *.c -lfl
+$./a.out lexer_test.pas
+
+Version:
+1. flex 2.5.35
+2. bison 2.4.1
+3. gcc 4.6.1
+
+Output:
+symtable.out : symbol table
+rule.out : parse rule

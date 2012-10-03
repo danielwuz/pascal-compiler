@@ -1,0 +1,48 @@
+* Project 1: Lexical Analyzer *
+* By Zhe Wu N16445442 *
+* zw339@nyu.edu *
+* Feb 21, 2012 *
+***********************************************
+What's included?
+1. lex source file 's2.l'
+2. output of lexer generator 'lex.yy.c'
+3. executable program 'a.out'
+4. (option) test programs 'lexer_test.pas' and 'test2.pas'
+
+***********************************************
+Tools version.
+1. flex 2.5.35
+2. gcc 4.6.1
+
+***********************************************
+How to run the program?
+There're two ways to run the program.
+1. Run the executable 'a.out' directly, by calling
+$./a.out lexer_test.pas
+or
+ $./a.out
+in the terminal.
+
+The first command (recommend) takes the scanning file as parameter, then the lexical analyzer will scan the input file, and print out token and lexeme information on the screen.
+
+The second command, which is without parameters, will simple read input from standard input stream, and print out information on the screen.
+
+2. Generate from beginning. Execute the following command in terminal one by one.
+a) $flex s2.l
+This will generate a C program naming 'lex.yy.c', just as I provided.
+
+b) $gcc lex.yy.c
+This will generate an executable 'a.out'.
+
+c) $./a.out or $./a.out lexer_test.pas, as described in 1.
+
+***********************************************
+What tokens can be recognized?
+1. Keywords: token for keyword will be print out, without any attributes. For example, 'if' will be recognized and print out as '<if>'.
+2. Identifiers: identifier will be put into a symbol table, the token for identifier has form <id, pointer to symbol table> and the symbol table will print out at the end of scanning. Eg. 'lexer_test' will be recognized as '<id, 0>' where 0 indicates that the literal 'lexer_test' being put into the 0th entry of symbol table.
+3. Integers: integers are print out as <number, int value>. For example, integer '1' will be recognized and print out as '<number, 1>'
+4. Strings: string literals are print out as <literal, string value>. For example, string "This is a String" will be print out as '<literal, "This is a string">'
+5. Arithmetic operators: arithmetic operators, i.e. +, -, *, have form <arithop, operator>. Eg.'+' will be print out as '<arithop, + >'
+6. Relation operators: relation operators, i.e. <, =, <=, >, >=, <>, are print out as <relop, operator>. Eg. '<' will be print out as '<relop, < >'
+7. Other operators: any other operators, i.e. .| , | : | ; | := | .. | ( | ) | [ | ] , are print out as <otherop, operator>. Eg. ':=' will be print out as '<otherop, := >'
+8. Any other symbols: any other symbols not cooridinate with the above specifications will be report as unknown symbol. Eg. '^' will be print out as '<unknown , ^ >'

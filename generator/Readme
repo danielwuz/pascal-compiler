@@ -1,0 +1,77 @@
+* Project 4: Intermediate Code Generate *
+* By Zhe Wu N16445442 *
+* zw339@nyu.edu *
+* May 02, 2012 *
+***********************************************
+What's included?
+1. lex source file 's2.l', output of lexer generator 'lex.yy.c'
+2. bison source file 's4.y', output of bison generator 's4.tab.h' and 's4.tab.c'
+3. head file ''header.h''
+4. executable program 'a.out'
+5. test file ``test6.pas''
+
+***********************************************
+Tools version.
+1. flex 2.5.35
+2. bison 2.4.1
+3. gcc 4.6.1
+
+***********************************************
+How to run the program?
+There're two ways to run the program.
+1. Run the executable 'a.out' directly, by calling
+$./a.out test6.pas
+
+The command (recommend) takes the scanning file as parameter, then the parser will parse the input file, and output intermediate code in file: a.txt.
+
+2. Generate from beginning. Execute the following command in terminal one by one.
+a) bison -d s4.y
+This will generate a C program s4.tab.c as well as its header file s4.tab.h
+
+b) $flex s2.l
+This will generate a C program naming 'lex.yy.c', just as I provided.
+
+b) $gcc *.c -lfl
+This will generate an executable 'a.out'.
+
+c) $./a.out or $./a.out test6.pas, as described in 1.
+
+***********************************************
+What intermediate code will be generate? Some notes:
+1. Each function/procedure will generate with label beginning with __ and followed by function/procedure name. For example, function foo() will generate:
+__foo:
+  //function body
+funreturn foo
+
+2. The program entry is given by the label containing program name. For example, ``program errorfree'' starts with label:
+__errorfree:
+ //program starting here util end of file
+
+3. ``If then else'' statement implementation has the short-circuit effect, as well as ``while'' statement.
+
+4. ``For'' statement will automatically increase the variable by ``1'', as professor mentioned in the mailing list.
+
+
+
+*****************Notes for previous assignment******************************
+What errors will be detected?
+1. Any used variable must have been declared first in its intended scope.
+2. Catch multiple declarations of the same variable within the same scope.
+3. Catch unequivalent types. For simplicity, we all assume that this error happens whenever A = B occurs and both A and B are of different types.
+
+
+What included in the symbol table?
+1. Types: anything defined in TypeDefinition section. The type field in symbol table for type variable is whatever type it is assigned to.
+2. Variables: anything defined in VariableDefinition section. The type field in symbol table for variables is whatever type it is assigned, or ''array'' if it is an array, or ''record'' if it is a record.
+3. Function and Procedures: type of function/procedure is the number of arguments it takes.
+4. Any other identifier: I save them in the symbol table for future semantic check use, but I leave the type field is ``null'' for them at this moment. 
+
+What tokens can be recognized?
+1. Keywords: token for keyword will be print out, without any attributes. For example, 'if' will be recognized and print out as '<if>'.
+2. Identifiers: identifier will be put into a symbol table, the token for identifier has form <id, pointer to symbol table> and the symbol table will print out at the end of scanning. Eg. 'lexer_test' will be recognized as '<id, 0>' where 0 indicates that the literal 'lexer_test' being put into the 0th entry of symbol table.
+3. Integers: integers are print out as <number, int value>. For example, integer '1' will be recognized and print out as '<number, 1>'
+4. Strings: string literals are print out as <literal, string value>. For example, string "This is a String" will be print out as '<literal, "This is a string">'
+5. Arithmetic operators: arithmetic operators, i.e. +, -, *, have form <arithop, operator>. Eg.'+' will be print out as '<arithop, + >'
+6. Relation operators: relation operators, i.e. <, =, <=, >, >=, <>, are print out as <relop, operator>. Eg. '<' will be print out as '<relop, < >'
+7. Other operators: any other operators, i.e. .| , | : | ; | := | .. | ( | ) | [ | ] , are print out as <otherop, operator>. Eg. ':=' will be print out as '<otherop, := >'
+8. Any other symbols: any other symbols not cooridinate with the above specifications will be report as unknown symbol. Eg. '^' will be print out as '<unknown , ^ >'
